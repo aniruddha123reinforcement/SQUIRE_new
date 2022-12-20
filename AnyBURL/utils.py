@@ -16,7 +16,7 @@ import re
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=False, action="store_true")
-    parser.add_argument("--path", default="path1/path-1000")
+    parser.add_argument("--path", default="/content/SQUIRE_results/path1/path-1000")
     parser.add_argument("--num", default=50, type=int) # threshold for appearing time, 50 for FB237
     parser.add_argument("--ratio", default=0.1, type=float) # threshold for true rate
     parser.add_argument("--dataset", default="FB15K237")
@@ -27,7 +27,7 @@ def filter_rule(path, thrshd_num, thrshd_ratio):
     rel2paths = dict()
     rel2scores = dict()
     rel2rules = dict()
-    with open('../data/'+args.dataset+'/relation2id.txt', 'r') as f:
+    with open(args.dataset+'/relation2id.txt', 'r') as f:
         for line in f.readlines():
             rel, N = line.strip().split('\t')
     N = int(N) + 1
