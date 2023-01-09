@@ -16,7 +16,7 @@ import re
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=False, action="store_true")
-    parser.add_argument("--path", default="/content/SQUIRE_results/path1/path-1000")
+    parser.add_argument("--path", default="/kaggle/working/SQUIRE_results/rules")
     parser.add_argument("--num", default=50, type=int) # threshold for appearing time, 50 for FB237
     parser.add_argument("--ratio", default=0.1, type=float) # threshold for true rate
     parser.add_argument("--dataset", default="FB15K237")
@@ -81,7 +81,7 @@ def filter_rule(path, thrshd_num, thrshd_ratio):
                 
     for k in rel2paths.keys():
         rel2rules[k] = sorted(zip(rel2scores[k], rel2paths[k]), key=lambda pair: pair[0], reverse=True)
-    with open('../data/'+args.dataset+'/rules.dict', 'w') as f:
+    with open(args.dataset+'/rules.dict', 'w') as f:
         json.dump(rel2rules, f)
 
 if __name__ == "__main__":
