@@ -16,7 +16,7 @@ import re
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=False, action="store_true")
-    parser.add_argument("--path", default="/kaggle/working/SQUIRE_results/rules")
+    parser.add_argument("--path", default="/kaggle/working/SQUIRE/rules")
     parser.add_argument("--num", default=50, type=int) # threshold for appearing time, 50 for FB237
     parser.add_argument("--ratio", default=0.1, type=float) # threshold for true rate
     parser.add_argument("--dataset", default="FB15K237")
