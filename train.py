@@ -26,7 +26,7 @@ def get_args():
     parser.add_argument("--weight-decay", default=0, type=float)
     parser.add_argument("--num-epoch", default=20, type=int)
     parser.add_argument("--save-interval", default=10, type=int)
-    parser.add_argument("--save-dir", default="model_1")
+    parser.add_argument("--save-dir", default="/kaggle/working/SQUIRE/models_new/model_1")
     parser.add_argument("--ckpt", default="ckpt_30.pt")
     parser.add_argument("--dataset", default="FB15K237")
     parser.add_argument("--label-smooth", default=0.5, type=float)
@@ -236,7 +236,7 @@ def evaluate(model, dataloader, device, args, true_triples=None, valid_triples=N
 
 def train(args):
     args.dataset = os.path.join('data', args.dataset)
-    save_path = os.path.join('models_new', args.save_dir)
+    save_path = os.path.join('/kaggle/working/SQUIRE/models_new', args.save_dir)
     ckpt_path = os.path.join(save_path, 'checkpoint')
     if not os.path.exists(save_path):
         os.mkdir(save_path)
@@ -328,7 +328,7 @@ def train(args):
 
 def checkpoint(args):
     args.dataset = os.path.join('data', args.dataset)
-    save_path = os.path.join('models_new', args.save_dir)
+    save_path = os.path.join('/kaggle/working/SQUIRE/models_new', args.save_dir)
     ckpt_path = os.path.join(save_path, 'checkpoint')
     if not os.path.exists(ckpt_path):
         print("Invalid path!")
